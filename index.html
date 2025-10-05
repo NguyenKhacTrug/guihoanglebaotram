@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thư Trung Thu gửi Trâmm 💌</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Charm&family=Great+Vibes&display=swap');
+  body {
+    background: radial-gradient(circle at top, #f5deb3 10%, #f3d9b1 40%, #e7c79e 90%);
+    font-family: 'Charm', cursive;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    color: #4b2e05;
+    overflow: hidden;
+  }
+  .paper {
+    width: 90%;
+    max-width: 700px;
+    background: #fffaf0 url('https://i.imgur.com/zm2Z4jP.png') repeat;
+    padding: 40px 50px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.2);
+    line-height: 1.8;
+    position: relative;
+    animation: fadeIn 2s ease;
+  }
+  .paper::before {
+    content: "";
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 180px;
+    height: 180px;
+    background: url('https://i.imgur.com/4dIFV6e.png') no-repeat center/contain;
+    opacity: 0.8;
+    animation: moonGlow 3s ease-in-out infinite alternate;
+  }
+  @keyframes moonGlow {
+    from { filter: drop-shadow(0 0 8px #ffd27d); }
+    to { filter: drop-shadow(0 0 25px #ffe8b3); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  h1 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.2em;
+    text-align: center;
+    color: #8b4513;
+    margin-bottom: 25px;
+  }
+  #content {
+    white-space: pre-line;
+    font-size: 18px;
+    text-indent: 35px;
+    min-height: 300px;
+  }
+  .signature {
+    text-align: right;
+    font-family: 'Great Vibes', cursive;
+    font-size: 1.5em;
+    margin-top: 40px;
+    opacity: 0;
+    transition: opacity 2s ease;
+  }
+  .signature.show {
+    opacity: 1;
+  }
+  .lantern {
+    position: absolute;
+    top: -30px;
+    width: 50px;
+    height: 80px;
+    background: url('https://i.imgur.com/kDyrBlh.png') no-repeat center/contain;
+    animation: floatLantern 6s ease-in-out infinite;
+  }
+  .lantern:nth-child(1) { left: 10%; animation-delay: 0s; }
+  .lantern:nth-child(2) { left: 30%; animation-delay: 2s; }
+  .lantern:nth-child(3) { left: 70%; animation-delay: 4s; }
+
+  @keyframes floatLantern {
+    0% { transform: translateY(0); opacity: 0.9; }
+    50% { transform: translateY(-25px); opacity: 1; }
+    100% { transform: translateY(0); opacity: 0.9; }
+  }
+</style>
+</head>
+<body>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/download/audio/2023/09/20/audio_b6936e2c0b.mp3?filename=mid-autumn-festival-184893.mp3" type="audio/mpeg">
+</audio>
+
+<div class="paper">
+  <div class="lantern"></div>
+  <div class="lantern"></div>
+  <div class="lantern"></div>
+
+  <h1>Gửi em, thíu nhi của anhh 💛</h1>
+
+  <div id="content"></div>
+
+  <div class="signature" id="signature">Thương em,<br>— Anh 💫</div>
+</div>
+
+<script>
+  const message = `
+Gửi em lá thư anh "code vội" nàyyyy, chúc thíu nhi của anh một đêm trung thu vui vẻ nha ! Nay là ngày mà ánh trăng, ánh sao, ánh sáng có mặt ở khắp mọi nơi !
+
+Nhưng những thứ lấp lánh ấy vẫn không sánh bằng một thứ, thứ ấy dù cho có trải qua 1 ngàn năm ánh sáng vẫn không vụt tắt được sự lấp lánh của nó được !
+
+Đấy, là đôi mắt em, đôi mắt dịu dàng chỉ dành cho anh.
+
+Lồng đèn tuổi gì, khi em Trâm của anh đã có một nửa cái Trung Thu này. Trung/Thu <33333
+
+Yêu em lắmmm !
+
+  const content = document.getElementById('content');
+  const signature = document.getElementById('signature');
+  let i = 0;
+
+  function typeWriter() {
+    if (i < message.length) {
+      content.textContent += message.charAt(i);
+      i++;
+      setTimeout(typeWriter, 45); // tốc độ hiện chữ (ms)
+    } else {
+      signature.classList.add('show');
+    }
+  }
+
+  window.onload = () => {
+    typeWriter();
+  };
+</script>
+
+</body>
+</html>
